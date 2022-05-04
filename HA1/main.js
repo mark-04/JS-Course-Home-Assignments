@@ -15,7 +15,7 @@ const main = (computation) => {
   const inputs = coerceEach(Number, getInputs());
 
   if (allValid(inputs)) {
-    let result = computation(...inputs);
+    const result = computation(...inputs);
     console.log(result);
   } else {
     console.log('Некорректный ввод!')
