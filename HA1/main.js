@@ -7,7 +7,7 @@ function getInputs() {
 } 
 
 function coerceEach(coercingFn, values) {
-  values.map(coercingFn)
+  return values.map(coercingFn)
 } 
 
 function allValid(inputs) {
