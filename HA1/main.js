@@ -13,7 +13,7 @@ function coerceEach(coercingFn, values) {
 function allValid(inputs) {
   const result = inputs
     .map((value) => !(Number.isNaN(value)) 
-    .reduce((accumulator, input) => accumulator && input);
+    .reduce((accumulator, input) => accumulator && input, true);
 
   return result
 } 
