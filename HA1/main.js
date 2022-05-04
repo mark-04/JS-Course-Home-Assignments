@@ -1,23 +1,38 @@
 'use strict';
 
-const getInputs  = () => [prompt(), prompt()]; 
-const coerceEach = (coercingFn, array) => array.map(coercingFn);
-const allValid   = (array) => (
-  array
-    .map((value) => !(Number.isNaN(value)))
-    .reduce((fst, snd) => fst && snd, true)
-);
+const ERROR_MESSAGE = 'Некорректный ввод!';
 
-const numberWithRadix = (number, radix) => Number(number.toString(radix));
-const sumAndDivide    = (first, second) => `Ответ: ${first + second}, ${first / second}.`;
+function getInputs() {
+  return [prompt(), prompt()];
+} 
 
-const main = (computation) => {
+function coerceEach(coercingFn, values) {
+  values.map(coercingFn)
+} 
+
+function allValid(inputs) {
+  const result = inputs
+    .map((value) => !(Number.isNaN(value)) 
+    .reduce((accumulator, input) => accumulator && input);
+
+  return result
+} 
+
+function numberWithRadix(number, radix) {
+  return Number(number.toString(radix)); 
+} 
+
+function sumAndDivide(first, second) {
+  return `Ответ: ${first + second}, ${first / second}.`;
+} 
+
+function main(computation) {
   const inputs = coerceEach(Number, getInputs());
 
   if (allValid(inputs)) {
     const result = computation(...inputs);
     console.log(result);
   } else {
-    console.log('Некорректный ввод!')
+    console.log(ERROR_MESSAGE)
   }
-};
+}
