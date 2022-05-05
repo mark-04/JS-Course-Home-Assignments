@@ -6,10 +6,11 @@ const ERROR_MESSAGE = 'Некорректный ввод!';
 // and thus enable injecting different computations for different tasks
 function main(computation) {
   return function() {
-    const inputs = coerceEach(Number, getInputs());
+    const inputs = changeTypeEach(Number, getInputs());
 
     if (allValid(inputs)) {
       const result = computation(...inputs);
+      
       console.log(result);
     } else {
       console.log(ERROR_MESSAGE)
@@ -27,8 +28,8 @@ function getInputs() {
   return [prompt(), prompt()];
 } 
 
-function coerceEach(coercingFn, values) {
-  return values.map(coercingFn)
+function changeTypeEach(castingFn, values) {
+  return values.map(castingFn)
 } 
 
 function allValid(inputs) {
