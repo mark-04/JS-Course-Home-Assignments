@@ -2,16 +2,26 @@
 
 const ERROR_MESSAGE = 'Некорректный ввод!';
 
+// Main function is curried in order to allow partial application 
+// and thus enable injecting different computations for different tasks
 function main(computation) {
-  const inputs = coerceEach(Number, getInputs());
+  return function() {
+    const inputs = coerceEach(Number, getInputs());
 
-  if (allValid(inputs)) {
-    const result = computation(...inputs);
-    console.log(result);
-  } else {
-    console.log(ERROR_MESSAGE)
+    if (allValid(inputs)) {
+      const result = computation(...inputs);
+      console.log(result);
+    } else {
+      console.log(ERROR_MESSAGE)
+    }
   }
 }
+
+document.getElementById('first-task').addEventListener('click', main(numberWithRadix));
+document.getElementById('second-task').addEventListener('click', main(sumAndDivide));
+
+
+// Auxiliary functions:
 
 function getInputs() {
   return [prompt(), prompt()];
