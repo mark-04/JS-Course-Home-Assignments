@@ -2,6 +2,17 @@
 
 const ERROR_MESSAGE = 'Некорректный ввод!';
 
+function main(computation) {
+  const inputs = coerceEach(Number, getInputs());
+
+  if (allValid(inputs)) {
+    const result = computation(...inputs);
+    console.log(result);
+  } else {
+    console.log(ERROR_MESSAGE)
+  }
+}
+
 function getInputs() {
   return [prompt(), prompt()];
 } 
@@ -25,14 +36,3 @@ function numberWithRadix(number, radix) {
 function sumAndDivide(first, second) {
   return `Ответ: ${first + second}, ${first / second}.`;
 } 
-
-function main(computation) {
-  const inputs = coerceEach(Number, getInputs());
-
-  if (allValid(inputs)) {
-    const result = computation(...inputs);
-    console.log(result);
-  } else {
-    console.log(ERROR_MESSAGE)
-  }
-}
