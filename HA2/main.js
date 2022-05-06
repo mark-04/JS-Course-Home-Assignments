@@ -17,9 +17,11 @@ const entries = (collection) => {
   }
 };
 
-// Helper function to encapsulate recursive reduction
-const deepHelper = (value) => {
-  if (typeof value !== 'object') {
+// Works for any data type 
+const deepCopy = (value) => {
+  if (typeof value === null) {
+    return null
+  } else if (typeof value !== 'object') {
     return value
   } else {
     const empty = (Array.isArray(value) ? [] : {});
@@ -29,14 +31,6 @@ const deepHelper = (value) => {
     }, empty); 
     
     return result
-  }
-};
-
-const makeObjectDeepCopy = (obj) => {
-  if (Array.isArray(obj) || typeof obj !== 'object' || obj === null) {
-    throw new Error('Invalid input. Use this function with plain objects only')
-  } else {
-    return deepHelper(obj)
   }
 };
 
