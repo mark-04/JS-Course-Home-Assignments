@@ -90,7 +90,7 @@ class RangeIterator {
     let current = this.from;
 
     return { 
-      next() {
+      next: () => {
         if (current <= this.to) {
           return {value: current++, done: false}
         } else {
