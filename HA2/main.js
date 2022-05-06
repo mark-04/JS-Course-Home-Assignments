@@ -51,7 +51,8 @@ const sortAscending = (arr) => arr.sort((a,b) => a === b ? 0 : (a < b ? -1 : 1))
 const selectFromInterval = (numbers, ...bounds) => {
   const isValidInput = (
     Array.isArray(numbers) &&
-    numbers.every((element) => typeof element === 'number')
+    numbers.every((element) => typeof element === 'number') &&
+    bounds.every((element) => typeof element === 'number')
   );
 
   if (isValidInput) {
@@ -61,7 +62,7 @@ const selectFromInterval = (numbers, ...bounds) => {
   } else {
     throw new Error('Invalid input!');
   }
-}
+};
 
 
 /*------------+
