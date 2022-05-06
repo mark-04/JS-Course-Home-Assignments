@@ -19,7 +19,7 @@ const entries = (collection) => {
 
 // Works for any data type 
 const deepCopy = (value) => {
-  if (typeof value === null) {
+  if (value === null) {
     return null
   } else if (typeof value !== 'object') {
     return value
