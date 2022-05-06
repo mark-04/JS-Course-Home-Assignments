@@ -19,9 +19,7 @@ const entries = (collection) => {
 
 // Works for both objects and arrays
 const deepCopy = (value) => {
-  if (value === null) {
-    return null
-  } else if (typeof value !== 'object') {
+  if (value === null || typeof value !== 'object') {
     return value
   } else {
     const empty = (Array.isArray(value) ? [] : {});
