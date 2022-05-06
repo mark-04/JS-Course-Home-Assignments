@@ -89,8 +89,16 @@ class RangeIterator {
     let current = this.from;
 
     return { 
-      next: () => (current <= this.to ? {value: current++, done: false} : {done: true}) 
-    }
+      next() {
+        if (current <= this.to) {
+          return {value: current++, done: false}
+        } else {
+          current = this.from;
+
+          return {done: true}
+        } 
+      }
+    };
   };
 };
 
