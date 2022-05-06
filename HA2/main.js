@@ -17,7 +17,7 @@ const entries = (collection) => {
   }
 };
 
-// Works for any data type 
+// Works for both objects and arrays
 const deepCopy = (value) => {
   if (value === null) {
     return null
