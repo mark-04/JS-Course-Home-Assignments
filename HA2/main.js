@@ -26,7 +26,7 @@ const deepCopy = (value) => {
   } else {
     const empty = (Array.isArray(value) ? [] : {});
     const result = entries(value).reduce((acc, [key, val]) => {
-      acc[key] = deepHelper(val);
+      acc[key] = deepCopy(val);
       return acc
     }, empty); 
     
