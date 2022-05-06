@@ -33,7 +33,7 @@ const deepHelper = (value) => {
 };
 
 const makeObjectDeepCopy = (obj) => {
-  if (Array.isArray(obj) || typeof obj !== 'object') {
+  if (Array.isArray(obj) || typeof obj !== 'object' || obj === null) {
     throw new Error('Invalid input. Use this function with plain objects only')
   } else {
     return deepHelper(obj)
