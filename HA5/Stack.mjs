@@ -24,7 +24,7 @@ class Stack {
     };
 
     const stack = new Stack(iterableSize);
-    
+
     for (let item of iterable) {
       stack.push(item)
     };
@@ -57,7 +57,9 @@ class Stack {
     };
 
     this.#size -= 1;
+
     const poped = this.#value.head;
+    
     this.#value = new List(this.#value.tail);
 
     return poped
