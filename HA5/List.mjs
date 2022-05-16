@@ -38,7 +38,8 @@ class List {
       throw new Error('Iterable structure expected')
     };
 
-    let list = new List();
+    const list = new List();
+
     for (let element of iterable) {
       list.prepend(element) 
     };

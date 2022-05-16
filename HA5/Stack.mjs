@@ -18,10 +18,13 @@ class Stack {
     };
 
     let iterableSize = 0;
+
     for (let item of iterable) {
       iterableSize++
     };
+
     const stack = new Stack(iterableSize);
+    
     for (let item of iterable) {
       stack.push(item)
     };
