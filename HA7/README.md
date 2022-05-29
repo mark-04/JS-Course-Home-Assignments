@@ -53,6 +53,10 @@ Some more examples:
 22.8
 > 0.017e4 * (4 - 2)
 340
+> blah
+'Error. Unexpected token: b'
+> 18 + blah
+'Error. Invalid expression'
 > 5
 5
 > 5 + 

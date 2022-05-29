@@ -93,7 +93,7 @@ export const satisfy$P = (pred) => (input) => {
     return parserR;
   };
 
-  throw new ParserError('Unexpected token: ' + result);
+  throw new ParserError('Error. Unexpected token: ' + result);
 };
 
 export const char$P = (char) => satisfy$P((inputChar) => inputChar === char);
