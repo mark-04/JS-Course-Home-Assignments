@@ -29,7 +29,7 @@ const
   multiplyOp = makePrecise((x,y) => x*y),
   divideOp = makePrecise((x,y) => {
     if (y === 0) {
-      throw new ArithmeticExceptin('Arithmetic exception. Division by zero');
+      throw new ArithmeticExceptin('Error. Division by zero');
     };
 
     return x/y;

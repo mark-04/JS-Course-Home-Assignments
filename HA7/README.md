@@ -44,7 +44,7 @@ whereas, the next one is not:
 Division by zero is disallowed: 
 ```
 > 5 / 0
-'Arithmetic exception. Division by zero'
+'Error. Division by zero'
 ```
 
 Some more examples:
