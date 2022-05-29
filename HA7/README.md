@@ -2,7 +2,7 @@
 The implementation is inspired by the seminal 1998 paper [Monadic parsing in Haskell
 ](https://www.cs.tufts.edu/comp/150FP/archive/graham-hutton/monadic-parsing-jfp.pdf).
 
-You can start a REPL (interactive evaluator) by typing `node './repl.mjs'` in your terminal (given this folder is your current working directory).
+You can start a REPL (interactive evaluator) by typing `node './parser/repl.mjs'` in your terminal (given this folder is your current working directory).
 
 ## About the calculator
 
