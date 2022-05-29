@@ -1,6 +1,8 @@
 'use strict';
 
 import {
+  isError,
+  capturePR,
   ArithmeticExceptin,
   cons$P,
   satisfy$P, 
@@ -32,8 +34,9 @@ const
 
     return x/y;
   }),
-/** Regular Expressions **/  
+/** Regular Expressions **/   
   spaceRe = /\s/,
+  notSpaceRe = /\S/,
   digitRe = /\d/,        
 /** Arithmetic Parsers & Parser Combinators **/         
   space = satisfy$P((char) => spaceRe.test(char)),
@@ -68,4 +71,27 @@ function subexpr(input) {
   return choice$P(inParents$P(expr), number)(input);
 };
 
-export default expr;
+// Wrapper arround expression parser that returns printable result
+// Returns an error message if some part of the input is left unparsed
+const parse = (input) => {
+  const parserR = capturePR(expr, input);
+
+  if (isError(parserR)) {
+    return parserR.message;
+  };
+
+  const {
+    result,
+    unparsed
+  } = parserR;
+
+  const leftUnparsedInput = notSpaceRe.test(unparsed);
+
+  if (leftUnparsedInput) {
+    return 'Error. Invalid expression';
+  };
+
+  return result;
+};
+
+export default parse;
