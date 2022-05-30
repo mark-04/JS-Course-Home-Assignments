@@ -70,7 +70,7 @@ document.getElementById('calculate').addEventListener('click', (() => calculator
 
 const calculatorButtons = [
   ['left-paren', '('],
-  ['right-paren', '('],
+  ['right-paren', ')'],
 
   ['zero', '0'],
   ['one', '1'],
